@@ -1,0 +1,13 @@
+From 0a9bdbd77380d4de43a2545d6f86be87da79b09c Mon Sep 17 00:00:00 2001
+From: gditrani269 <gditrani269@gmail.com>
+Date: Sat, 11 Mar 2017 21:02:37 -0300
+Subject: Update otro
+
+
+diff --git a/otro b/otro
+index 3cbd00d..a5272d3 100644
+--- a/otro
++++ b/otro
+@@ -1 +1,2 @@
+ naranja
++violeta
