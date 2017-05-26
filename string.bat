@@ -2,7 +2,8 @@ REM los parametros que recibe son tres:
 REM		1 - path completo del repositorio donde se encuentra el entregable 
 REM		2 - lista completa de los archivos que se suben  a dimensions y que conformaran el xml de deploy automatico, deben estar separados por ; y entre comillas.
 REM			por ejemplo: "arch1.arj;arch2.arj;ar_custom.xml"
-REM		3 - Numero de TO
+REM		3 - Numero de TO de SERENA
+REM		4 - Numero de ACTIVIDAD de DIMENSIONS
 
 echo off
 Setlocal EnableDelayedExpansion
@@ -25,7 +26,7 @@ goto :main
 	:: Si no se mandan parametros salimos
 	IF NOT DEFINED STRING ENDLOCAL & EXIT/B 1 
 	::
-	:: Extracción de caracteres que aumenta en 1
+	:: ExtracciÃ³n de caracteres que aumenta en 1
 	CALL SET "VAR=%%STRING%:~%CONT%,1%%"
 	::
 	IF DEFINED VAR (
