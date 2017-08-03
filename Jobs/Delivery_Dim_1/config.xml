@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>-	Verificar que los nombres de los archivos a subir a Dimensions sean existentes y correctos.&#xd;
+-	Copiar los archivos a subir a Dimensions a la carpeta correspondiente en el Workspace local de Dimensions.&#xd;
+-	Verificar que el Framework exista en Workspace loal de Dimesion.&#xd;
+-	Crear la carpeta Entregables en caso de que la misma no exista aún.&#xd;
+-	Crear los XML de deploy automatico de Serena para los ambientes de Homologación y Producción.&#xd;
+-	Subir a la actividad los archivos que forma parte del pasaje y los XML de deploy automáticos para Serena.&#xd;
+</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>RUTA</name>
+          <description>path parcial del repositorio donde se encuentra o se debe crear la carpeta ENTREGABLE en el repositorio local de Dimensions (ej: ServiciosComunesProductos\ConsultaTransaccionesVentaSeguro\V1)</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ARCHIVOS_HOMO</name>
+          <description>lista completa de los archivos que se suben  a dimensions y que conformaran el xml de deploy automatico de homo, deben estar separados por “;”.</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ARCHIVOS_PROD</name>
+          <description>lista completa de los archivos que se suben  a dimensions y que conformaran el xml de deploy automatico de prod, deben estar separados por &quot;;&quot;.</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>TO</name>
+          <description>Numero de TO de SERENA</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ACTIVIDAD</name>
+          <description>Numero de ACTIVIDAD de DIMENSIONS</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>USER_DIMENSION</name>
+          <description>Usuario para logearse en Dimension</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.PasswordParameterDefinition>
+          <name>PASS_DIMENSION</name>
+          <description>Password para logearse en Dimension</description>
+          <defaultValue>{AQAAABAAAAAQYaFAfB0TNoUV0gyukGqh7J4IqFQW6ABEKEg0X6bpklQ=}</defaultValue>
+        </hudson.model.PasswordParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.BatchFile>
+      <command>C:\Users\l0646482\n\mi_desa\jenkins\jobs\Delivery_Dim_1\Delivery_Dim_1.bat</command>
+    </hudson.tasks.BatchFile>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>
