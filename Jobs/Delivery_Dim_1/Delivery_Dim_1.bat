@@ -172,6 +172,9 @@ set PAR=!PAR:%fpath%=%recorte%!
 set PAR=!PAR:\=/!
 REM fin de arma el path del repositorio del server de dimensions.
 
+--------------------------------------------------------------------------
+REM hace un update de la carpeta d deployautomatico para tener la ultima version subida a dimenzion con el parametro --accept REPOSITORY que fuerza que se baje a la copia local la version del repositorio.
+dm Update DeployAutomatico --accept REPOSITORY --directory C:\Dimensions\Workspace2 --user l0646482 --password saile239 --database Galicia@Dimensions --server Dimensions1
 ========================================================================
 REM Comienzo: crea xml de deploy automatico de HOMO y arma path
 echo --------------- Armado de deploy automatico para Homologacion ---------------------
@@ -306,6 +309,7 @@ dm Add DeployAutomatico --directory C:\Dimensions\Workspace2 --requestId %ACTIVI
 
 
 echo Deliver a Dimension de xml de deploy automatico
+
 dm deliver DeployAutomatico --directory C:\Dimensions\Workspace2 --requestId %ACTIVIDAD% --user %USER_DIMENSION% --password %PASS_DIMENSION% --database Galicia@Dimensions --server Dimensions1
 
 echo %RUTA%\Entregables
