@@ -1,0 +1,64 @@
+------------------------------------------------------------------------
+6731 | L0664707 | 2018-01-08 17:59:49
+         C | D | ABMCInfoClientes/AccionesEncuestaPerfilInversor | CBUS_OSB_ACTIVIDAD_1411
+         C | D | ABMCInfoClientes/AccionesEncuestaPerfilInversor/v1 | CBUS_OSB_ACTIVIDAD_1411
+         C | D | ABMCInfoClientes/AccionesEncuestaPerfilInversor/v1/ProxyService | CBUS_OSB_ACTIVIDAD_1411
+         C | I | ABMCInfoClientes/AccionesEncuestaPerfilInversor/v1/ConfirmarPerfilInversorRequest-1.0.0.xsd;cbus_osb_desarrollo#1 | CBUS_OSB_ACTIVIDAD_1411
+         C | I | ABMCInfoClientes/AccionesEncuestaPerfilInversor/v1/AccionesEncuestaPerfilInversor-1.0.0.wsdl;cbus_osb_desarrollo#1 | CBUS_OSB_ACTIVIDAD_1411
+         C | I | ABMCInfoClientes/AccionesEncuestaPerfilInversor/v1/SimularPerfilInversorResponse-1.0.0.xsd;cbus_osb_desarrollo#1 | CBUS_OSB_ACTIVIDAD_1411
+         C | I | ABMCInfoClientes/AccionesEncuestaPerfilInversor/v1/SimularPerfilInversorRequest-1.0.0.xsd;cbus_osb_desarrollo#1 | CBUS_OSB_ACTIVIDAD_1411
+         C | I | ABMCInfoClientes/AccionesEncuestaPerfilInversor/v1/ProxyService/AccionesEncuestaPerfilInversor-1.0.0_Anonimo.proxy;cbus_osb_desarrollo#1 | CBUS_OSB_ACTIVIDAD_1411
+         C | I | ABMCInfoClientes/AccionesEncuestaPerfilInversor/v1/ConfirmarPerfilInversorResponse-1.0.0.xsd;cbus_osb_desarrollo#1 | CBUS_OSB_ACTIVIDAD_1411
+         C | I | ABMCInfoClientes/AccionesEncuestaPerfilInversor/v1/ProxyService/AccionesEncuestaPerfilInversor-1.0.0_Basica.proxy;cbus_osb_desarrollo#1 | CBUS_OSB_ACTIVIDAD_1411
+------------------------------------------------------------------------
+6876 | L0664707 | 2018-01-24 11:04:54
+        PM | D | ABMCInfoClientes/AccionesEncuestaPerfilInversor -> AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor | CBUS_OSB_ACTIVIDAD_1411
+         M | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/ConfirmarPerfilInversorResponse-1.0.0.xsd;cbus_osb_desarrollo#2 | CBUS_OSB_ACTIVIDAD_1411
+         M | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/SimularPerfilInversorRequest-1.0.0.xsd;cbus_osb_desarrollo#2 | CBUS_OSB_ACTIVIDAD_1411
+         M | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/ConfirmarPerfilInversorRequest-1.0.0.xsd;cbus_osb_desarrollo#2 | CBUS_OSB_ACTIVIDAD_1411
+         M | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/SimularPerfilInversorResponse-1.0.0.xsd;cbus_osb_desarrollo#2 | CBUS_OSB_ACTIVIDAD_1411
+         M | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/ProxyService/AccionesEncuestaPerfilInversor-1.0.0_Anonimo.proxy;cbus_osb_desarrollo#2 | CBUS_OSB_ACTIVIDAD_1411
+         M | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/AccionesEncuestaPerfilInversor-1.0.0.wsdl;cbus_osb_desarrollo#2 | CBUS_OSB_ACTIVIDAD_1411
+         M | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/ProxyService/AccionesEncuestaPerfilInversor-1.0.0_Basica.proxy;cbus_osb_desarrollo#2 | CBUS_OSB_ACTIVIDAD_1411
+------------------------------------------------------------------------
+6877 | L0664707 | 2018-01-24 11:10:27
+         M | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/ConfirmarPerfilInversorResponse-1.0.0.xsd;cbus_osb_desarrollo#3 | CBUS_OSB_ACTIVIDAD_1411
+         M | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/AccionesEncuestaPerfilInversor-1.0.0.wsdl;cbus_osb_desarrollo#3 | CBUS_OSB_ACTIVIDAD_1411
+------------------------------------------------------------------------
+6945 | L0664707 | 2018-01-30 13:06:50
+         C | D | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/BusinessService | CBUS_OSB_ACTIVIDAD_1411
+         C | D | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/XQ | CBUS_OSB_ACTIVIDAD_1411
+         C | D | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/wsdlproveedor | CBUS_OSB_ACTIVIDAD_1411
+         C | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/wsdlproveedor/AccionesEncuestaPerfilInversor-1.0.0.wsdl;cbus_osb_desarrollo#1 | CBUS_OSB_ACTIVIDAD_1411
+         C | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/wsdlproveedor/SimularPerfilInversorResponse-1.0.0.xsd;cbus_osb_desarrollo#1 | CBUS_OSB_ACTIVIDAD_1411
+         C | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/wsdlproveedor/SimularPerfilInversorRequest-1.0.0.xsd;cbus_osb_desarrollo#1 | CBUS_OSB_ACTIVIDAD_1411
+         C | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/BusinessService/AccionesencuestaPerfilInversor.biz;cbus_osb_desarrollo#1 | CBUS_OSB_ACTIVIDAD_1411
+         M | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/ProxyService/AccionesEncuestaPerfilInversor-1.0.0_Anonimo.proxy;cbus_osb_desarrollo#3 | CBUS_OSB_ACTIVIDAD_1411
+         C | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/ProxyService/AccionesEncuestaPerfilInversor-1.0.0_Local.proxy;cbus_osb_desarrollo#1 | CBUS_OSB_ACTIVIDAD_1411
+         M | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/ProxyService/AccionesEncuestaPerfilInversor-1.0.0_Basica.proxy;cbus_osb_desarrollo#3 | CBUS_OSB_ACTIVIDAD_1411
+         C | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/wsdlproveedor/AccionesEncuestaPerfilInversor_WSExportAccionesEncuestaPerfilInversor_1.wsdl;cbus_osb_desarrollo#1 | CBUS_OSB_ACTIVIDAD_1411
+         C | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/wsdlproveedor/BGBAResultadoOperacion-2.0.0.xsd;cbus_osb_desarrollo#1 | CBUS_OSB_ACTIVIDAD_1411
+         C | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/XQ/ConfirmarPerfilInversorResponse.xq;cbus_osb_desarrollo#1 | CBUS_OSB_ACTIVIDAD_1411
+         C | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/wsdlproveedor/BGBATiposSoporte-3.0.0.xsd;cbus_osb_desarrollo#1 | CBUS_OSB_ACTIVIDAD_1411
+         C | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/wsdlproveedor/ConfirmarPerfilInversorResponse-1.0.0.xsd;cbus_osb_desarrollo#1 | CBUS_OSB_ACTIVIDAD_1411
+         C | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/wsdlproveedor/BGBAHeader-2.0.0.xsd;cbus_osb_desarrollo#1 | CBUS_OSB_ACTIVIDAD_1411
+         C | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/XQ/ConfirmarPerfilInversorRequest.xq;cbus_osb_desarrollo#1 | CBUS_OSB_ACTIVIDAD_1411
+         C | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/wsdlproveedor/BGBATiposBase-3.0.0.xsd;cbus_osb_desarrollo#1 | CBUS_OSB_ACTIVIDAD_1411
+         C | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/wsdlproveedor/ConfirmarPerfilInversorRequest-1.0.0.xsd;cbus_osb_desarrollo#1 | CBUS_OSB_ACTIVIDAD_1411
+------------------------------------------------------------------------
+6949 | L0774979 | 2018-01-30 15:39:25
+         M | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/ProxyService/AccionesEncuestaPerfilInversor-1.0.0_Local.proxy;cbus_osb_desarrollo#4 | CBUS_OSB_ACTIVIDAD_1411
+------------------------------------------------------------------------
+6981 | L0664707 | 2018-02-02 08:47:13
+         M | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/ProxyService/AccionesEncuestaPerfilInversor-1.0.0_Local.proxy;cbus_osb_desarrollo#5 | CBUS_OSB_ACTIVIDAD_1411
+------------------------------------------------------------------------
+7109 | L0646482 | 2018-02-16 11:29:16
+         M | I | DeployAutomatico/XMLImportJar_Homo1.xml;cbus_osb_desarrollo#934 | CBUS_OSB_ACTIVIDAD_1411
+         M | I | DeployAutomatico/XMLImportJar_Prod.xml;cbus_osb_desarrollo#961 | CBUS_OSB_ACTIVIDAD_1411
+------------------------------------------------------------------------
+7110 | L0646482 | 2018-02-16 11:29:55
+         C | D | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/Entregables | CBUS_OSB_ACTIVIDAD_1411
+         C | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/Entregables/AccionesEncuestaPerfilInversor-v1_20180216_1123.jar;cbus_osb_desarrollo#1 | CBUS_OSB_ACTIVIDAD_1411
+         C | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/Entregables/AccionesEncuestaPerfilInversor_Custom_HOMO.xml;cbus_osb_desarrollo#1 | CBUS_OSB_ACTIVIDAD_1411
+         C | I | AdministracionRiesgoCliente/AccionesEncuestaPerfilInversor/v1/Entregables/AccionesEncuestaPerfilInversor_Custom_PROD.xml;cbus_osb_desarrollo#1 | CBUS_OSB_ACTIVIDAD_1411
+------------------------------------------------------------------------
