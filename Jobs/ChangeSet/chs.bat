@@ -4,8 +4,12 @@ set sPathWork=C:\Users\l0646482\n\mi_desa\jenkins\jobs\ChangeSet\
 set sal=0
 set ACTIVIDAD=0
 set bError=0
+set fSalida=C:\Users\l0646482\n\mi_desa\jenkins\jobs\Check_Final\salida_%BUILD_NUMBER%.txt
+set fStatus=C:\Users\l0646482\n\mi_desa\jenkins\jobs\Check_Final\status_%BUILD_NUMBER%.txt
+rem set fMail_Report=C:\Users\l0646482\n\mi_desa\jenkins\jobs\Check_Final\MailReport_%BUILD_NUMBER%.txt
+set fMail_Report=C:\Users\l0646482\n\mi_desa\jenkins\jobs\Check_Final\MailReport.txt
 
-dmcli -user l0646482 -pass saile245 -host Dimensions1 -dbname Galicia -dsn Dimensions log /LOGFILE="C:\Users\l0646482\n\mi_desa\jenkins\Carpeta-Out\l.txt"
+dmcli -user l0646482 -pass saile246 -host Dimensions1 -dbname Galicia -dsn Dimensions log /LOGFILE="C:\Users\l0646482\n\mi_desa\jenkins\Carpeta-Out\l.txt"
 
 echo Contenido del "deliver" de la transaccion (version): %version%
 
@@ -16,6 +20,7 @@ for /f "tokens=*" %%i in (C:\Users\l0646482\n\mi_desa\jenkins\Carpeta-Out\l.txt)
 		if "%%j"=="%version%" (set sal=1)
 		if "!sal!"=="1" (
 			echo %%i
+			echo %%i  >> %fSalida%
 
 			rem guarda la actividad del changeset
 			for /f "tokens=7" %%b in ("%%i") do (
@@ -32,13 +37,14 @@ for /f "tokens=*" %%i in (C:\Users\l0646482\n\mi_desa\jenkins\Carpeta-Out\l.txt)
 rem temporal
 rem	set ACTIVIDAD=CBUS_OSB_ACTIVIDAD_1388
 
-echo La ACTIVIDAD es: %ACTIVIDAD%
+echo ACTIVIDAD: %ACTIVIDAD%
+echo ACTIVIDAD: %ACTIVIDAD% >> %fSalida%
 
 rem echo El contenido completo de la actividad es:
 
 del !sPathWork!filelist.txt
 
-dmcli -user l0646482  -pass saile245  -host Dimensions1 -dbname Galicia -dsn Dimensions log /CHANGE_DOC_ID=!ACTIVIDAD! /LOGFILE="!sPathWork!filelist.txt"
+dmcli -user l0646482  -pass saile246  -host Dimensions1 -dbname Galicia -dsn Dimensions log /CHANGE_DOC_ID=!ACTIVIDAD! /LOGFILE="!sPathWork!filelist.txt"
 
 rem type C:\Users\l0646482\n\mi_desa\jenkins\jobs\ChangeSet\filelist.txt.txt
 	 
@@ -223,9 +229,13 @@ rem					Echo String SI found.
 		rem							echo frameworek ok
 								) ELSE (
 									echo Hay mas de un FRAMEWORK en la actividad
+									echo Hay mas de un FRAMEWORK en la actividad. >> %fSalida%
 									Echo Primer Fwk/Serv detectado:	!fwk_serv!
+									echo Primer Fwk/Serv detectado:	!fwk_serv! >> %fSalida%
 									Echo Nuevo  Fwk/Serv encontrado: %%c/%%d
+									echo Nuevo  Fwk/Serv encontrado: %%c/%%d >> %fSalida%
 									Echo -------------------------------------------
+									echo ------------------------------------------- >> %fSalida%
 									set bError=1
 								)
 							)
@@ -237,17 +247,28 @@ rem					Echo String SI found.
 copy !sPathWork!invert4.txt !sPathWork!!ACTIVIDAD!-%version%.txt >> NUL
 :fin
 
+echo %bError% >> %fStatus%
+
 IF "%bError%"=="1" (
 	echo FIN con ERROR: hay mas de un framework en la actividad: %ACTIVIDAD%.
-) ELSE (
+	echo FIN con ERROR: hay mas de un framework en la actividad: %ACTIVIDAD%. >> %fSalida%
+	echo FWK=Fail>> %fMail_Report%
+	) ELSE (
 	echo FIN OK: la actividad esta en orden.
+	echo FIN OK: la actividad esta en orden. >> %fSalida%
+	echo FWK=OK>> %fMail_Report%
 )
 
-exit %bError%
+rem exit %bError%
+exit 0
 
 :ACT_VACIA
 
+echo %bError% >> %fStatus%
+
 echo La activiadad !ACTIVIDAD! esta vacia.
 echo FIN OK: la actividad esta en orden.
+echo FWK=OK>> %fMail_Report%
 
-exit %bError%
+rem exit %bError%
+exit 0
