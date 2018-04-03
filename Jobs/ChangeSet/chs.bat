@@ -9,7 +9,7 @@ set fStatus=C:\Users\l0646482\n\mi_desa\jenkins\jobs\Check_Final\status_%BUILD_N
 rem set fMail_Report=C:\Users\l0646482\n\mi_desa\jenkins\jobs\Check_Final\MailReport_%BUILD_NUMBER%.txt
 set fMail_Report=C:\Users\l0646482\n\mi_desa\jenkins\jobs\Check_Final\MailReport.txt
 
-dmcli -user l0646482 -pass saile246 -host Dimensions1 -dbname Galicia -dsn Dimensions log /LOGFILE="C:\Users\l0646482\n\mi_desa\jenkins\Carpeta-Out\l.txt"
+dmcli -user l0646482 -pass saile247 -host Dimensions1 -dbname Galicia -dsn Dimensions log /LOGFILE="C:\Users\l0646482\n\mi_desa\jenkins\Carpeta-Out\l.txt"
 
 echo Contenido del "deliver" de la transaccion (version): %version%
 
@@ -44,11 +44,13 @@ rem echo El contenido completo de la actividad es:
 
 del !sPathWork!filelist.txt
 
-dmcli -user l0646482  -pass saile246  -host Dimensions1 -dbname Galicia -dsn Dimensions log /CHANGE_DOC_ID=!ACTIVIDAD! /LOGFILE="!sPathWork!filelist.txt"
+dmcli -user l0646482  -pass saile247  -host Dimensions1 -dbname Galicia -dsn Dimensions log /CHANGE_DOC_ID=!ACTIVIDAD! /LOGFILE="!sPathWork!filelist.txt"
 
 rem type C:\Users\l0646482\n\mi_desa\jenkins\jobs\ChangeSet\filelist.txt.txt
 	 
 :invertir
+rem la siguietne actividad contiene un renombramiento de carpeta
+rem set ACTIVIDAD=CBUS_OSB_ACTIVIDAD_1411
 copy !sPathWork!filelist.txt !sPathWork!filelist_bck.txt >> NUL
 
 del !sPathWork!invert.txt
@@ -116,12 +118,23 @@ del !sPathWork!invert2.txt
 					)
 				)
 			)
+		) else (rem el segundo flag es "D", verifica si renombro una carpeta
+			if "%%u"=="PM" (
+				echo renombro una carpeta, tambien se debe copiar
+				if "%%y"=="!ACTIVIDAD!" (
+					for /f "tokens=1 delims=;" %%m in ("%%x") do (
+						echo PM %%w %%m >> !sPathWork!invert2.txt
+					)
+				)
+			)
 		)
 	)
 
 rem procesa las lineas con el flag PR. Toma el archivo invert2.
 Rem En las linea con flag PR, al primer nombre de archivo le cambia el flag por ON (original name)
 Rem En las linea con flag PR, el segundo nombre de  archivo le cambia el flag por NN (new name)
+REM En las lineas con falg PM, al primer nombre de archivo le cambia el flag por CO (Carpeta original )
+REM En las lineas con falg PM, al segundo nombre de archivo le cambia el flag por NN (Carpeta original )
 rem salida: invert3.txt
 del !sPathWork!invert3.txt
 	for /f "tokens=1,2,3" %%u in (!sPathWork!invert2.txt) do (
@@ -130,7 +143,12 @@ del !sPathWork!invert3.txt
 			echo NN %%w >> !sPathWork!invert3.txt
 				
 		) else (
-			echo %%u %%v >> !sPathWork!invert3.txt
+			if "%%u"=="PM" (
+				echo CO %%v >> !sPathWork!invert3.txt
+				echo NN %%w >> !sPathWork!invert3.txt
+			) else (
+				echo %%u %%v >> !sPathWork!invert3.txt
+			)
 		)
 	)
 
@@ -155,6 +173,9 @@ for /f "tokens=1,2" %%r in (!sPathWork!invert3.txt) do (
 	if "%%r"=="ON" (
 	set tFlag=borrar
 	)
+	if "%%r"=="CO" (
+	set tFlag=borrar_carpeta
+	)
 	if "%%r"=="C" (
 	set tFlag=copiar
 	)
@@ -173,19 +194,31 @@ for /f "tokens=1,2" %%r in (!sPathWork!invert3.txt) do (
 
 
 	for /f "tokens=1,2" %%t in (!sPathWork!invert4.txt) do (
-		if "!inv3_field2!"=="%%u" (
-			if "!tFlag!"=="borrar" (
-				rem
-rem				echo no hace nada porque es un flag borrar
-			)
-			if "!tFlag!"=="copiar" (
-				echo %%t %%u >> !sPathWork!tmp_inv4.txt 
-				rem cambia tFlag a borrar para que ignore el resto de las lineas del mismo nombre
-				set tFlag=borrar
-			)
-			
+		if "!tFlag!"=="borrar_carpeta" (
+					rem set lin=!lin:^:policy-expression^>= !
+					rem verifica si se renombro una carpeta
+						set sTemp=%%u
+	 					set sTemp=!sTemp:%%s=!
+						if not "%%u"=="!sTemp!" (
+rem 							echo u==sTemp: !sTemp!
+						) else (
+							echo %%t %%u >> !sPathWork!tmp_inv4.txt
+						)
 		) else (
-			echo %%t %%u >> !sPathWork!tmp_inv4.txt
+			if "!inv3_field2!"=="%%u" (
+				if "!tFlag!"=="borrar" (
+					rem
+	rem				echo no hace nada porque es un flag borrar
+				)
+				if "!tFlag!"=="copiar" (
+					echo %%t %%u >> !sPathWork!tmp_inv4.txt 
+					rem cambia tFlag a borrar para que ignore el resto de las lineas del mismo nombre
+					set tFlag=borrar
+				)
+				
+			) else (
+				echo %%t %%u >> !sPathWork!tmp_inv4.txt
+			)
 		)
 	)	
 	
