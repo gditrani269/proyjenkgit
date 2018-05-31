@@ -1,60 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>Este job permite modificar un custom con URIs de rango medio subido previamente a una actividad de Dimensions.&#xd;
-Recibiendo como parametros de entrada:&#xd;
-- Numero de actividad&#xd;
-- Nombre y path del custom a actualizar&#xd;
-- Ingresar Nombre de la operacion (maximo tres operaciones)&#xd;
-- URI de cada operacion.&#xd;
-- User Dimension&#xd;
-- Pass Dimension&#xd;
-&#xd;
-Como salida, actualiza la/s URIs de las operaciones especificadas y actualiza el custom file en Dimensions.&#xd;
-Si no encuentra alguna de las operaciones tambien avisa.</description>
+  <description>El Job Get_Entregables recibe por el formulario al número de Actividad, y en la consola de salida muestra el contenido de la carpeta ENTREGABLES</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
           <name>ACTIVIDAD</name>
-          <description>Debe completar el numero de Actividad</description>
+          <description></description>
           <defaultValue>CBUS_OSB_ACTIVIDAD_</defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>CUSTOM_NAME</name>
-          <description>Nombre del Custom file a subir o actualizar</description>
-          <defaultValue></defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>OPERACION_1</name>
-          <description>Nombre de la operacion vinculada a la URI</description>
-          <defaultValue></defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>URI_1</name>
-          <description></description>
-          <defaultValue></defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>OPERACION_2</name>
-          <description>Nombre de la operacion vinculada a la URI</description>
-          <defaultValue></defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>URI_2</name>
-          <description></description>
-          <defaultValue></defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>OPERACION_3</name>
-          <description>Nombre de la operacion vinculada a la URI</description>
-          <defaultValue></defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>URI_3</name>
-          <description></description>
-          <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>User_Dim</name>
@@ -64,7 +19,7 @@ Si no encuentra alguna de las operaciones tambien avisa.</description>
         <hudson.model.PasswordParameterDefinition>
           <name>Pass_Dim</name>
           <description></description>
-          <defaultValue>{AQAAABAAAAAQm/WyXIZtmT1BcBvozELZzoFEMXMY91QVF7lWQ4RE0vs=}</defaultValue>
+          <defaultValue>{AQAAABAAAAAQn50SqtzigGv7n+GvEy1AQJes6m0sKY/vgx11KNz07JE=}</defaultValue>
         </hudson.model.PasswordParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
@@ -78,16 +33,9 @@ Si no encuentra alguna de las operaciones tambien avisa.</description>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.BatchFile>
-      <command>echo off&#xd;
-rem C:\Users\l0646482\n\mi_desa\jenkins\jobs_desarrollo\Handle_Custom\t.bat&#xd;
-&#xd;
-C:\Users\l0646482\n\mi_desa\jenkins\jobs_desarrollo\Handle_Custom\Handle_Custom.bat&#xd;
-&#xd;
-</command>
+      <command>C:\Users\l0646482\n\mi_desa\jenkins\jobs_desarrollo\Get_Entregables\Get_Entregables.bat</command>
     </hudson.tasks.BatchFile>
   </builders>
   <publishers/>
-  <buildWrappers>
-    <org.jenkinsci.plugins.builduser.BuildUser plugin="build-user-vars-plugin@1.5"/>
-  </buildWrappers>
+  <buildWrappers/>
 </project>
