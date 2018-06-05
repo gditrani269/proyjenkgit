@@ -1,0 +1,15 @@
+C:\Users\l0646482\n\mi_desa\jenkins\jobs_desarrollo\Create_Baseline\Items_Temp\.dm\.dirs.dmdb
+C:\Users\l0646482\n\mi_desa\jenkins\jobs_desarrollo\Create_Baseline\Items_Temp\.dm\.workareaconfig.dmdb
+C:\Users\l0646482\n\mi_desa\jenkins\jobs_desarrollo\Create_Baseline\Items_Temp\AdministracionRiesgoCliente\.dm\.dirs.dmdb
+C:\Users\l0646482\n\mi_desa\jenkins\jobs_desarrollo\Create_Baseline\Items_Temp\AdministracionRiesgoCliente\ConsultaMargenesCliente\.dm\.dirs.dmdb
+C:\Users\l0646482\n\mi_desa\jenkins\jobs_desarrollo\Create_Baseline\Items_Temp\AdministracionRiesgoCliente\ConsultaMargenesCliente\v1\ObtenerMargenesClienteResponse-1.0.0.xsd
+C:\Users\l0646482\n\mi_desa\jenkins\jobs_desarrollo\Create_Baseline\Items_Temp\AdministracionRiesgoCliente\ConsultaMargenesCliente\v1\.dm\.dirs.dmdb
+C:\Users\l0646482\n\mi_desa\jenkins\jobs_desarrollo\Create_Baseline\Items_Temp\AdministracionRiesgoCliente\ConsultaMargenesCliente\v1\.dm\.items.dmdb
+C:\Users\l0646482\n\mi_desa\jenkins\jobs_desarrollo\Create_Baseline\Items_Temp\AdministracionRiesgoCliente\ConsultaMargenesCliente\v1\Entregables\ConsultaMargenesCliente-v1_20180531_1004.jar
+C:\Users\l0646482\n\mi_desa\jenkins\jobs_desarrollo\Create_Baseline\Items_Temp\AdministracionRiesgoCliente\ConsultaMargenesCliente\v1\Entregables\ConsultaMargenesCliente_Custom_Homo.xml
+C:\Users\l0646482\n\mi_desa\jenkins\jobs_desarrollo\Create_Baseline\Items_Temp\AdministracionRiesgoCliente\ConsultaMargenesCliente\v1\Entregables\.dm\.items.dmdb
+C:\Users\l0646482\n\mi_desa\jenkins\jobs_desarrollo\Create_Baseline\Items_Temp\AdministracionRiesgoCliente\ConsultaMargenesCliente\v1\XQ\ObtenerMargenesClienteResponse-1.0.0.xq
+C:\Users\l0646482\n\mi_desa\jenkins\jobs_desarrollo\Create_Baseline\Items_Temp\AdministracionRiesgoCliente\ConsultaMargenesCliente\v1\XQ\.dm\.items.dmdb
+C:\Users\l0646482\n\mi_desa\jenkins\jobs_desarrollo\Create_Baseline\Items_Temp\DeployAutomatico\XMLImportJar_Homo1.xml
+C:\Users\l0646482\n\mi_desa\jenkins\jobs_desarrollo\Create_Baseline\Items_Temp\DeployAutomatico\XMLImportJar_Prod.xml
+C:\Users\l0646482\n\mi_desa\jenkins\jobs_desarrollo\Create_Baseline\Items_Temp\DeployAutomatico\.dm\.items.dmdb
