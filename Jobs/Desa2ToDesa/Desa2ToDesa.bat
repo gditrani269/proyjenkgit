@@ -78,7 +78,13 @@ rem	echo Hubo un erro en el chs1.1.bat, el codigo de error es: %errorlevel%
 rem echo errorlevel de chs1.1.bat %errorlevel%, todo OK
 	echo Actividad OK
 Echo -------------------- FIN de verificacion de Framework/servicio --------------------
-exit /b
+
+
+rem el goto es para evitarque vuelva a bajar el contenido de la actividad ya que eso lo hizo previamente dentro de chs1.3.bat
+goto :chequeos
+
+
+
 REM ------------------------------- FIN Chequeso Avanzados B 2 y 3 -------------------------------------------------------------
 
 REM ------------------------------- Chequeso Avanzados B4  ----------------------------------------------------------------
@@ -97,8 +103,12 @@ setlocal disabledelayedexpansion
 dm get --directory Items_Temp  --requestId %ACTIVIDAD% --user %User_Dim% --password %Pass_Dim% --database Galicia@Dimensions --server Dimensions1 > NUL
 setlocal EnableDelayedExpansion
 
+
+:chequeos
+
+
 Echo -------------------- Comienzo de la verificacion de settings en fuentes de Dimensions --------------------
-call C:\Users\l0646482\n\mi_desa\jenkins\jobs\Servicios_Comunes\Check_Settings1.1.bat Items_Temp
+call %pathServiciosComunes%Check_Settings1.2.bat %JobWorkPath%
 
 if not %errorlevel%==0 (
 rem	echo Hubo un erro en el Check_Settings1.1.bat, el codigo de error es: %errorlevel%
@@ -110,16 +120,27 @@ echo Los settings de los fuentes de Dimensions estan OK
 Echo -------------------- FIN de la verificacion de settings en fuentes de Dimensions --------------------
 REM ------------------------------- FIN Chequeso Avanzados B5 -------------------------------------------------------------
 
+
 REM ------------------------------- Acciones C1  ----------------------------------------------------------------
 REM 1.	Genera el Build automatico.
 REM genera el archivo de entrada del BUILD automatico, este archivo contiene una linea con el path por cada archivo de la actividad, se toma el archivo de salida de chs1.1.bat
 
-if exist files-%ACTIVIDAD%.txt del files-%ACTIVIDAD%.txt
-for /f "tokens=2" %%x in (%ACTIVIDAD%-.txt) do (
-	echo %%x>>files-%ACTIVIDAD%.txt
-)
+	set pa=%JobWorkPath%Items_Temp2
+	for /f "tokens=*" %%r in (%JobWorkPath%servicio.txt) do (
+rem		echo salida Entregable %%r 
+rem		echo %%r >> %sWorkPath%servicio_db.txt
+		set tEntre=%%r
+		set tEntre=!tEntre:%pa%^\=!
+	
+		set PathFile_Entregable=!tEntre!
+		
+		set PathFile_Entregable=!PathFile_Entregable:.dmdb=!
+		if !tEntre!==!PathFile_Entregable! (
+			echo !PathFile_Entregable%!
+		)
+	)
 
-
+exit /b
 REM Invoca al proceso que arma el .jar
 
 REM elimina el ultimo log de salida
