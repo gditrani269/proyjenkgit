@@ -2,7 +2,8 @@ echo off
 setlocal enabledelayedexpansion
 
 REM setea la carpeta de trabajo, a partir de la cual se van a verificar los settings
-set Items_Temp=%1
+set sWorkPath=%1
+set Items_Temp=%sWorkPath%Items_Temp2
 
 REM salida:
 REM	0:	Ok
@@ -13,33 +14,23 @@ set report=
 
 REM ---------- Variables de salida ---------------
 set timeout=30
-set /A Counter_timeout=0
 set connection-timeout=5
-set /A Counter_connection_timeout=0
 set retry-count=0
-set /A Counter_retry_count=0
 set retry-interval=0
-set /A Counter_retry_interval=0
 set chunked=false
-set /A Counter_chunked=0
 set dispatch-policy=false
-set /A Counter_dispatch_policy=0
 set request-encoding=0
-set /A Counter_request_encoding=0
 set response-encoding=0
-set /A Counter_response_encoding=0
 set compression=0
 set bError=0
 REM ----------- FIN variables de salida ----------
-echo fin inicializado
+
 REM ----------- archivos de log ------------------
 rem set file_us=C:\Users\l0646482\n\mi_desa\jenkins\jobs\Check_Final\salida_%Padre_BUILD_NUMBER%.txt
 rem set fStatus=C:\Users\l0646482\n\mi_desa\jenkins\jobs\Check_Final\status_%Padre_BUILD_NUMBER%.txt
-set file_us=salida_%BUILD_NUMBER%.txt
-set fStatus=status_%BUILD_NUMBER%.txt
-rem El archivo MaliReport.txt se crea en el proceso chs.bat
-set fMail_Report=MailReport.txt
-set fSalida=salida_%BUILD_NUMBER%.txt
+set file_us=%sWorkPath%salida_%BUILD_NUMBER%.txt
+set fStatus=%sWorkPath%status_%BUILD_NUMBER%.txt
+rem set fSalida=%sWorkPath%salida_%BUILD_NUMBER%.txt
 set fMail_Adress=Mail_Address.txt
 REM ----------- FIN archivos de log ------------------
 
@@ -106,12 +97,11 @@ REM ----------------------------------------------------------------------------
 rem			echo %%c %%d
 			set timeout=%%d
 			set timeout=!timeout:^</=!
+			echo timeout: !timeout! >> %file_us%
 		)
 		IF not "!timeout!"=="30" (
 			set bError=1
-			echo timeout !timeout!
-			echo timeout: !timeout! >> %file_us%
-			set /A Counter_timeout+=1
+			echo ERROR: timeout !timeout!
 		)
 	)
 	
@@ -120,12 +110,11 @@ rem			echo %%c %%d
 		for /f "tokens=1,2 delims=http:connection-timeout>" %%c in ("%%x") do (
 			set connection-timeout=%%d
 			set connection-timeout=!connection-timeout:^</=!
+			echo connection-timeout: !connection-timeout! >> %file_us%
 		)
 		if not "!connection-timeout!"=="5" (
 			set bError=1
-			echo connection-timeout !connection-timeout!
-			echo connection-timeout: !connection-timeout! >> %file_us%
-			set /A Counter_connection_timeout+=1
+			echo ERROR: connection-timeout !connection-timeout!
 		)
 	)
 
@@ -134,12 +123,11 @@ rem			echo %%c %%d
 		for /f "tokens=1,2 delims=tran:retry-count>" %%c in ("%%x") do (
 			set retry-count=%%d
 			set retry-count=!retry-count:^</=!
+			echo retry-count: !retry-count! >> %file_us%
+		)
 		if not "!retry-count!"=="0" (
 			set bError=1
-			echo retry-count !retry-count!
-			echo retry-count: !retry-count! >> %file_us%
-			set /A Counter_retry_count+=1
-		)
+			echo ERROR: retry-count !retry-count!
 		)
 	)
 
@@ -148,12 +136,11 @@ rem			echo %%c %%d
 		for /f "tokens=1,2 delims=tran:retry-interval>" %%c in ("%%x") do (
 			set retry-interval=%%d
 			set retry-interval=!retry-interval:^</=!
+			echo retry-interval: !retry-interval! >> %file_us%
 		)
 		if not "!retry-interval!"=="0" (
 			set bError=1
-			echo retry-interval !retry-interval!
-			echo retry-interval: !retry-interval! >> %file_us%
-			set /A Counter_retry_interval+=1
+			echo ERROR: retry-interval !retry-interval!
 		)
 	)
 
@@ -169,11 +156,10 @@ rem 		echo !chunked!
 			) else (
 				set chunked=true
 			)
+			echo chunked-streaming-mode: !chunked! >> %file_us%
 		if "!chunked!"=="true" (
 			set bError=1
-			echo chunked !chunked!
-			echo chunked-streaming-mode: !chunked! >> %file_us%
-			set /A Counter_chunked+=1
+			echo ERROR: chunked !chunked!
 		)
 	)
 	
@@ -185,12 +171,11 @@ rem 		echo !chunked!
 	 
 	if !dispatch-policy!==false (
 		set bError=1
-		echo dispatch-policy: NO SE SETEO LA POLICY >> %file_us%
-		set /A Counter_dispatch_policy+=1
+		echo dispatch-policy: NO SE SETEO LA POLICYss >> %file_us%
+		echo ERROR: dispatch-policy: NO SE SETEO LA POLICY
 	) else (
-		echo dispatch-policy: SBDefaultResponseWorkManager >> %file_us%
+rem		echo dispatch-policy: SBDefaultResponseWorkManager >> %file_us%
 	)
-	
 	
 
 	
@@ -212,13 +197,12 @@ REM ----------------------------------------------------------------------------
 		for /f "tokens=1,2 delims=sock:request-encoding>" %%c in ("%%x") do (
 			set request-encoding=%%d
 			set request-encoding=!request-encoding:^</=!
+			echo request-encoding: !request-encoding! >> %file_us%
 		)
 	REM Inicio de verificacion seteos de PROXYS anonimos de SOCKETS
 		IF not "!request-encoding!"=="p284" (
 			set bError=1
-			echo request-encoding !request-encoding!
-			echo request-encoding: !request-encoding! >> %file_us%
-			set /A Counter_request_encoding+=1
+			echo ERROR: request-encoding !request-encoding!
 		)
 	)
 
@@ -227,12 +211,11 @@ REM ----------------------------------------------------------------------------
 		for /f "tokens=1,2 delims=sock:response-encoding>" %%c in ("%%x") do (
 			set response-encoding=%%d
 			set response-encoding=!response-encoding:^</=!
+			echo response-encoding: !response-encoding! >> %file_us%
 		)
 		IF not "!response-encoding!"=="284" (
 			set bError=1
-			echo response-encoding !response-encoding!
-			echo response-encoding: !response-encoding! >> %file_us%
-			set /A Counter_response_encoding+=1
+			echo ERROR: response-encoding !response-encoding!
 		)
 	REM Fin de verificacion seteos de PROXYS anonimos de SOCKETS
 	)
@@ -261,45 +244,11 @@ rem	echo verifica compression  >>  %file_us%
 	If %ERRORLEVEL% EQU 0 (
 		set bError=1
 		echo Hay al menos un TAG COMPRESSION >>  %file_us% 
-		echo Hay al menos un TAG COMPRESSION
+		echo ERROR: Hay al menos un TAG COMPRESSION
 	)
-
-
 
 echo bError= !bError!
 
-rem si bError es 0 deja el archivo fStatus como esta. Si bError es 1, borra el archivo fStatus y lo cre cargandole un 1 para indicar el error.
-rem ---------------------------------------------------
-
-for /f "tokens=*" %%y in (%fMail_Report%) do (
-	set report=%%y
-)
-del %fMail_Report%
-
-
-rem ---------------------------------------------------
-
-if "!bError!"=="1" (
-		del %fStatus%
-		echo !bError! >> %fStatus%
-		echo %report%---BS=Fail >> %fMail_Report%
-	) else (
-		echo %report%---BS=OK >> %fMail_Report%
-	)
-
-
-REM -------------------------------------- FIN 1, 2 y 3 --------------------------------------------------------------------
-
 echo ----FIN Check_Settings.bat
-
-echo Cantidad de Timeout mal: %Counter_timeout% >>  %file_us%
-echo Cantidad de Counter timeout mal: %Counter_connection_timeout% >>  %file_us%
-echo Cantidad de retry-count mal: %Counter_retry_count% >>  %file_us%
-echo Cantidad de retry-interval mal: %Counter_retry_interval% >>  %file_us%
-echo Cantidad de chunked mal: %Counter_chunked% >>  %file_us%
-echo Cantidad de dispatch-policy mal: %Counter_dispatch_policy% >>  %file_us%
-echo Cantidad de request-encoding mal: %Counter_request_encoding% >>  %file_us%
-echo Cantidad de response-encoding mal: %Counter_response_encoding% >>  %file_us%
-
 
 exit /b !bError!

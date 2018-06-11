@@ -54,7 +54,7 @@ for /f "tokens=*" %%x in ('findstr "%iActividad%" %act_exist%') do (
 	exit /b 2
 )
 
-echo ACTIVIDAD: %iActividad% >> %fSalida%
+rem echo ACTIVIDAD: %iActividad% >> %fSalida%
 
 REM elimina el contenido de la carpeta temporal y la vuelve a crear
 
@@ -65,15 +65,15 @@ if not exist Items_Temp2 md Items_Temp2 > NUL
 
 rem baja el contenido de la actividad %cargar la actividad%
 setlocal disabledelayedexpansion
-dm get --directory %JobWorkPath%Items_Temp2  --requestId %iActividad% --user %User_Dim% --password %Pass_Dim% --database Galicia@Dimensions --server Dimensions1 > NUL
+dm get --directory %sWorkPath%Items_Temp2  --requestId %iActividad% --user %User_Dim% --password %Pass_Dim% --database Galicia@Dimensions --server Dimensions1 > NUL
 setlocal EnableDelayedExpansion
 
-set pa=%JobWorkPath%Items_Temp2
+set pa=%sWorkPath%Items_Temp2
 
 rem --------------- Verifica si la actividad esta vacia -------------------------
 if exist servicio.txt del servicio.txt
 set bHayArchivos=false
-dir /a-d /b /on /s %JobWorkPath%Items_Temp2 >> servicio.txt
+dir /a-d /b /on /s %sWorkPath%Items_Temp2 >> servicio.txt
 for /f "tokens=*" %%x in (servicio.txt) do (
 	set sItem=%%x
 	set sItem=!sItem:.dmdb=!
@@ -121,9 +121,9 @@ rem si se da el caso 2, entonces la carpeta entregables esta en el nivel cuatro,
 	set bMasDeUnaVersion=false
 	
 	set sPathDeliver=
-	for /f "tokens=*" %%r in (%JobWorkPath%servicio.txt) do (
+	for /f "tokens=*" %%r in (%sWorkPath%servicio.txt) do (
 rem		echo salida Entregable %%r 
-rem		echo %%r >> %JobWorkPath%servicio_db.txt
+rem		echo %%r >> %sWorkPath%servicio_db.txt
 		set tEntre=%%r
 		set tEntre=!tEntre:%pa%^\=!
 	
@@ -136,7 +136,7 @@ rem		echo %%r >> %JobWorkPath%servicio_db.txt
 				set level3=%%u
 				set level3=!level3:.dmdb=!
 				if %%u==!level3! (
-					echo carpetas: !PathFile_Entregable!
+rem					echo carpetas: !PathFile_Entregable!
 					set m=!level3!
 					set m=!m:~1,2!
 					set /a m=!m!+1
