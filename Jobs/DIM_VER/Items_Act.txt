@@ -1,0 +1,3 @@
+         M | I | Integraciones/ConsultaPrestamoInmediatoGORM/v1/MFL/ObtenerPrestamoInmediatoResponse-1.0.0.mfl;cbus_osb_desarrollo#4 | CBUS_OSB_ACTIVIDAD_1189
+         M | I | Integraciones/ConsultaPrestamoInmediatoGORM/v1/XQ/ObtenerPrestamoInmediatoResponse-1.0.0.xq;cbus_osb_desarrollo#8 | CBUS_OSB_ACTIVIDAD_1189
+         M | I | Integraciones/ConsultaPrestamoInmediatoGORM/v1/ObtenerPrestamoInmediatoResponse-1.0.0.xsd;cbus_osb_desarrollo#5 | CBUS_OSB_ACTIVIDAD_1189

@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.security.AuthorizationMatrixProperty/>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>ACTIVIDAD</name>
+          <description></description>
+          <defaultValue>CBUS_OSB_ACTIVIDAD_</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>User_Dim</name>
+          <description></description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.PasswordParameterDefinition>
+          <name>Pass_Dim</name>
+          <description></description>
+          <defaultValue>{AQAAABAAAAAQI3Q+12T1wUZCfydsPpyiD7qKbpnpJbFZux5HAw7NYVo=}</defaultValue>
+        </hudson.model.PasswordParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ARCHIVOS_INTE</name>
+          <description>lista completa de los archivos que se suben  a dimensions y que conformaran el xml de deploy automatico de Inte, deben estar separados por “;”.</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ARCHIVOS_HOMO</name>
+          <description>lista completa de los archivos que se suben  a dimensions y que conformaran el xml de deploy automatico de homo, deben estar separados por “;”.</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ARCHIVOS_PROD</name>
+          <description>lista completa de los archivos que se suben  a dimensions y que conformaran el xml de deploy automatico de prod, deben estar separados por &quot;;&quot;.</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>Release_Package</name>
+          <description></description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>BASELINE_VERSION</name>
+          <description>version de la Baseline, puede estar en blanco si es la primer version o sini ir ingresndo V1, V2, etc segun corresponda.</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.BatchFile>
+      <command>C:\Users\l0646482\n\mi_desa\jenkins\jobs_desarrollo\Create_Baseline\Create_Baseline.bat</command>
+    </hudson.tasks.BatchFile>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <org.jenkinsci.plugins.builduser.BuildUser plugin="build-user-vars-plugin@1.5"/>
+  </buildWrappers>
+</project>

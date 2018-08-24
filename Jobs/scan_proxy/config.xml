@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Objetivo: mostrar la lista de usuarios configurados para consumir un proxy/basica.&#xd;
+Busca en el extracto de las consolas por una URL especifica, y luego extrae de los archivos que contienen dicha URL el contenido que hay entre los TAGS &lt;con3:policy-expression&gt;&#xd;
+&#xd;
+Recibe tres parametros:&#xd;
+1 - URL a buscar.&#xd;
+2 - Nombre de un archivo de salida que contendra el nombre de todos los archivos que contengan la URL del parametro 1.&#xd;
+3 . Nombre de un archivo de salida que contendra la lista de usuario contenida entre los TAGS &lt;con3:policy-expression&gt;</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>URL</name>
+          <description>Se debe ingresar la URL que se desea buscar que se haya referenciada en los objetos de la consola</description>
+          <defaultValue>???</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>File_Proxy</name>
+          <description>Nombre del archivo de salida que contendra el nombre de todos los archivos que contienen la URL indicada en el parametro 1: URL</description>
+          <defaultValue>???</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>File_Users</name>
+          <description>Nombre del archivo de salida que contendra la lista de usuarios que pueden consumir el proxy correspondiente a la URL indicada en el parametro 1: URL</description>
+          <defaultValue>???</defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.BatchFile>
+      <command>call C:\Users\l0646482\n\mi_desa\jenkins\jobs\scan_proxy\int.bat&#xd;
+&#xd;
+</command>
+    </hudson.tasks.BatchFile>
+    <jenkins.plugins.http__request.HttpRequest plugin="http_request@1.8.20">
+      <url>http://qqhh.esy.es/procesa2.php?nombre=$BUILD_USER_EMAIL&amp;apellidos=resultados%20de%20scan_proxy%20en:%20C:%5cUsers%5cl0646482%5cn%5cmi_desa%5cjenkins%5cjobs%5cscan_proxy%5c$File_Users</url>
+      <ignoreSslErrors>false</ignoreSslErrors>
+      <httpMode>GET</httpMode>
+      <passBuildParameters>false</passBuildParameters>
+      <validResponseCodes>100:399</validResponseCodes>
+      <validResponseContent></validResponseContent>
+      <acceptType>NOT_SET</acceptType>
+      <contentType>NOT_SET</contentType>
+      <outputFile></outputFile>
+      <timeout>0</timeout>
+      <consoleLogResponseBody>false</consoleLogResponseBody>
+      <authentication></authentication>
+      <requestBody></requestBody>
+      <customHeaders class="empty-list"/>
+    </jenkins.plugins.http__request.HttpRequest>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <org.jenkinsci.plugins.builduser.BuildUser plugin="build-user-vars-plugin@1.5"/>
+  </buildWrappers>
+</project>

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.security.AuthorizationMatrixProperty>
+      <permission>hudson.model.Item.Read:l0638595</permission>
+      <permission>hudson.model.Item.Read:l0796212</permission>
+      <permission>hudson.model.Item.Read:l0303216</permission>
+      <permission>hudson.model.Item.Read:l0669032</permission>
+      <permission>hudson.model.Item.Read:l0646431</permission>
+      <permission>hudson.model.Item.Read:l0637912</permission>
+      <permission>hudson.model.Item.Read:l0664707</permission>
+      <permission>hudson.model.Item.Read:l0774979</permission>
+      <permission>hudson.model.Item.Build:l0638595</permission>
+      <permission>hudson.model.Item.Build:l0796212</permission>
+      <permission>hudson.model.Item.Build:l0303216</permission>
+      <permission>hudson.model.Item.Build:l0669032</permission>
+      <permission>hudson.model.Item.Build:l0646431</permission>
+      <permission>hudson.model.Item.Build:l0637912</permission>
+      <permission>hudson.model.Item.Build:l0664707</permission>
+      <permission>hudson.model.Item.Build:l0774979</permission>
+    </hudson.security.AuthorizationMatrixProperty>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>ACTIVIDAD</name>
+          <description>Debe completar el numero de Actividad</description>
+          <defaultValue>CBUS_OSB_ACTIVIDAD_</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>User_Dim</name>
+          <description>User de Dimensions</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.PasswordParameterDefinition>
+          <name>Pass_Dim</name>
+          <description>Password de Dimensions</description>
+          <defaultValue>{AQAAABAAAAAQkwAEDaw/eTTNzvPJgXnLFtaqdFZxI2KKM667AYPgOP4=}</defaultValue>
+        </hudson.model.PasswordParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>Descripcion</name>
+          <description>Descripcion a mostrar en la consola del ESB</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.BatchFile>
+      <command>echo off&#xd;
+C:\Users\l0646482\n\mi_desa\jenkins\jobs\formulario\sasa.bat</command>
+    </hudson.tasks.BatchFile>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <org.jenkinsci.plugins.builduser.BuildUser plugin="build-user-vars-plugin@1.5"/>
+  </buildWrappers>
+</project>
