@@ -1,0 +1,7 @@
+<import> 
+		<jar> 
+			<path>D:/Serena/SDA-AGENT/core/var/work/CBUS_OSB/ABMCInfoClientes/AccionesInformeComercialGLRM/v1/Entregables/accionesinformebigg_20190426.jar</path> 
+			<path>D:/Serena/SDA-AGENT/core/var/work/CBUS_OSB/ABMCInfoClientes/AccionesInformeComercialGLRM/v1/Entregables/accionesinformebigg_Custom_Prod.xml</path> 
+			<transferencia>159909</transferencia> 
+		</jar>  
+</import> 
