@@ -2,8 +2,8 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title> Acción onclick en js </title>
-    // Aquí esta la referencia a jquery
+    <title>Verificacion de Baseline 1.0</title>
+    Verificacion de Baseline 1.1
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script>
     $(document).on('ready',function(){
@@ -26,11 +26,10 @@
   </head>
   <body>
     <form method="post" id="formulario">
-        <input type="text" name="BaselineNro" placeholder="BaselineNro" autofocus/>
+        BaselineNro: <input type="text" name="BaselineNro" placeholder="BaselineNro" autofocus/>
         <input type="button" id="btn-ingresar" value="Ingresar" />
     </form>
-    // Este div nos servirá para cachar la respuesta enviada 
-    // por el backend en caso de que sea necesario.
+
     <div id="resp"></div>
   </body>
 </html>
